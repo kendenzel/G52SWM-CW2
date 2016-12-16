@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.Viewer.ViewerController">
+    <children>
+        <Canvas fx:id="viewer" height="640.0" layoutY="1.0" width="640.0" />
+        <Separator layoutX="637.0" orientation="VERTICAL" prefHeight="640.0" prefWidth="6.0" />
+        <Text layoutX="664.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Item Position">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Text>
+        <Text layoutX="655.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note: You can only place item &#10;on grass.">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Text>
+        <Label fx:id="mouse_pos" layoutX="666.0" layoutY="160.0" text=" " textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <ToggleButton fx:id="axe_tol" layoutX="686.0" layoutY="117.0" mnemonicParsing="false" >
+            <toggleGroup>
+                <ToggleGroup fx:id="item_tol" />
+            </toggleGroup></ToggleButton>
+        <ToggleButton fx:id="ship_tol" layoutX="777.0" layoutY="117.0" mnemonicParsing="false"  toggleGroup="$item_tol" />
+        <Button layoutX="717.0" layoutY="238.0" mnemonicParsing="false"  text="Clear" />
+        <Label fx:id="map_status" alignment="CENTER" contentDisplay="CENTER" layoutX="664.0" layoutY="205.0" text=" " textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Button layoutX="705.0" layoutY="295.0" mnemonicParsing="false" text="Save Map" />
+    </children>
+</AnchorPane>

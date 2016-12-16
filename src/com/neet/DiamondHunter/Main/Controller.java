@@ -32,8 +32,8 @@ public class Controller implements Initializable{
         }
 
         if(gameviewer.isSelected()){
-
-        }
+        	viewerlaunch();
+		}
     }
 
 
@@ -48,6 +48,14 @@ public class Controller implements Initializable{
         window.setLocationRelativeTo(null);
         window.setVisible(true);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    
+    public void viewerlaunch() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("../Viewer/ViewerApp.fxml"));
+        primaryStage.setTitle("Map Viewer");
+        Scene first = new Scene(root,840,640);
+        primaryStage.setScene(first);
+        primaryStage.show();
     }
 
     @Override
