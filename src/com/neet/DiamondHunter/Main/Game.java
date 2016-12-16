@@ -4,23 +4,31 @@
 
 package com.neet.DiamondHunter.Main;
 
-import javax.swing.JFrame;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class Game {
-	
+public class Game extends Application{
+
 	public static void main(String[] args) {
-		
-		JFrame window = new JFrame("Diamond Hunter");
-		
-		window.add(new GamePanel());
-		
-		window.setResizable(false);
-		window.pack();
-		
-		window.setLocationRelativeTo(null);
-		window.setVisible(true);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
+		launch(args);
+
 	}
-	
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		try{
+			Parent root = FXMLLoader.load(getClass().getResource("Launcher.fxml"));
+			primaryStage.setTitle("Launcher");
+			Scene scene = new Scene(root,300,150);
+			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
+			primaryStage.show();
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+	}
 }
