@@ -7,6 +7,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,10 +22,17 @@ public class ViewerController implements Initializable {
     private Image axe = new Image(getClass().getResourceAsStream("ViewerResources/axe.jpg"));
     private Image ship = new Image(getClass().getResourceAsStream("ViewerResources/ship.jpg"));
 
+    private TileMap first = new TileMap();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        axe_tol.setGraphic(new ImageView(axe));
-        ship_tol.setGraphic(new ImageView(ship));
+        try {
+            first.tileMapManager();
+            axe_tol.setGraphic(new ImageView(axe));
+            ship_tol.setGraphic(new ImageView(ship));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
