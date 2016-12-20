@@ -1,5 +1,6 @@
 package com.neet.DiamondHunter.Viewer;
 
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
@@ -25,6 +26,9 @@ public class TileMap {
     private int width;
     private int height;
     private int[][] map;
+
+    //Graphics
+    public GraphicsContext g;
 
     private void loadTile(){
         tileset = new Image(getClass().getResourceAsStream("ViewerResources/testtileset.gif"));
@@ -64,10 +68,45 @@ public class TileMap {
         }
     }
 
-    public void tileMapManager() throws IOException {
+    private void drawMap(GraphicsContext g) throws IOException {
+        int parse;
+        for(int x = 0; x < numRows; x++) {
+            for(int y = 0; y < numCols; y++) {
+                parse = map[x][y];
+                switch(parse){
+                    case 1:
+                        g.drawImage(tiles[1][0].getImage(), x*tileSize,y*tileSize);
+                        break;
+
+                    case 2:
+                        g.drawImage(tiles[2][0].getImage(), x*tileSize,y*tileSize);
+                        break;
+
+                    case 3:
+                        g.drawImage(tiles[3][0].getImage(), x*tileSize,y*tileSize);
+                        break;
+
+                    case 20:
+                        g.drawImage(tiles[0][1].getImage(), x*tileSize,y*tileSize);
+                        break;
+
+                    case 21:
+                        g.drawImage(tiles[1][1].getImage(), x*tileSize,y*tileSize);
+                        break;
+
+                    case 22:
+                        g.drawImage(tiles[2][1].getImage(), x*tileSize,y*tileSize);
+                        break;
+                }
+            }
+        }
+    }
+
+    public void tileMapManager(GraphicsContext g) throws IOException {
         try{
             loadTile();
             loadMap();
+            drawMap(g);
         } catch (IOException e) {
             System.out.println("Map file not found!");
         }
