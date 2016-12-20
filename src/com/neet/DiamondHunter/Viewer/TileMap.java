@@ -102,6 +102,19 @@ public class TileMap {
         }
     }
 
+    public boolean getMap(int x, int y) throws ArrayIndexOutOfBoundsException{
+        boolean canDraw = true;
+        try{
+            if(map[x][y] >= 20){
+                canDraw = false;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return canDraw;
+    }
+
     public void tileMapManager(GraphicsContext g) throws IOException {
         try{
             loadTile();
