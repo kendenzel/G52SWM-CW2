@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 /**
  * Created by ANTOINE J. FEGHALI on 17/12/2016.
  */
-public class TileMap {
+public class TileMap extends Item {
 
     private Image tileset;
     private WritableImage crop;

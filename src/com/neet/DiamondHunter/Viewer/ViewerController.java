@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ViewerController implements Initializable {
+public class ViewerController extends TileMap implements Initializable {
 
 
     @FXML
@@ -58,6 +58,7 @@ public class ViewerController implements Initializable {
         g = viewer.getGraphicsContext2D();
         try {
             first.tileMapManager(g);
+            first.itemManager();
             axe_tol.setGraphic(new ImageView(axe));
             ship_tol.setGraphic(new ImageView(ship));
         } catch (IOException e) {
