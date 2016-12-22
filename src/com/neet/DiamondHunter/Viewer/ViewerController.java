@@ -109,4 +109,21 @@ public class ViewerController extends TileMap implements Initializable {
         }
 
     }
+
+    @FXML
+    public void clearItems() throws IOException {
+        shipDrawn = false;
+        axeDrawn = false;
+        g.clearRect(0,0,640,640);
+        refresh();
+    }
+
+    @FXML
+    public void save(){
+        first.save();
+    }
+
+    private void refresh() throws IOException {
+        first.tileMapManager(g);
+    }
 }

@@ -6,7 +6,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
 
-public abstract class Item{
+
+public abstract class Item extends SaveMap{
 
     private int tileSize = 16;
     private Image tileset;
@@ -35,11 +36,12 @@ public abstract class Item{
 
     public void drawAxe(int axeX, int axeY, GraphicsContext g){
         g.drawImage(items[1][1].getImage(),axeX*tileSize,axeY*tileSize);
-
+        updateAxe(axeX,axeY);
 
     }
     public void drawShip(int shipX, int shipY, GraphicsContext g){
         g.drawImage(items[0][1].getImage(),shipX*tileSize,shipY*tileSize);
+        updateShip(shipX,shipY);
 
     }
 

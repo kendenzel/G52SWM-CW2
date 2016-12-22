@@ -68,6 +68,10 @@ public class TileMap extends Item {
         }
     }
 
+    public void save(){
+        saveMap(map,numRows,numCols);
+    }
+
     private void drawMap(GraphicsContext g) throws IOException {
         int parse;
         for(int x = 0; x < numRows; x++) {
