@@ -8,8 +8,9 @@ package com.neet.DiamondHunter.GameState;
 import java.awt.Graphics2D;
 
 import com.neet.DiamondHunter.Manager.GameStateManager;
+import com.neet.DiamondHunter.Viewer.SaveMap;
 
-public abstract class GameState {
+public abstract class GameState extends SaveMap {
 	
 	protected GameStateManager gsm;
 	

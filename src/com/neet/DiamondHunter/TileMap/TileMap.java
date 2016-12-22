@@ -15,6 +15,12 @@ import javax.imageio.ImageIO;
 import com.neet.DiamondHunter.Main.GamePanel;
 
 public class TileMap {
+
+	//item
+	private int axeX;
+	private int axeY;
+	private int shipX;
+	private int shipY;
 	
 	// position
 	private int x;
@@ -99,7 +105,11 @@ public class TileMap {
 			BufferedReader br = new BufferedReader(
 						new InputStreamReader(in)
 					);
-			
+
+			axeX = Integer.parseInt(br.readLine());
+			axeY = Integer.parseInt(br.readLine());
+			shipX = Integer.parseInt(br.readLine());
+			shipY = Integer.parseInt(br.readLine());
 			numCols = Integer.parseInt(br.readLine());
 			numRows = Integer.parseInt(br.readLine());
 			map = new int[numRows][numCols];
@@ -128,7 +138,19 @@ public class TileMap {
 		}
 		
 	}
-	
+
+	public int getAxeX(){
+		return axeX;
+	}
+	public int getAxeY(){
+		return axeY;
+	}
+	public int getShipX(){
+		return shipX;
+	}
+	public int getShipY(){
+		return shipY;
+	}
 	public int getTileSize() { return tileSize; }
 	public int getx() { return x; }
 	public int gety() { return y; }

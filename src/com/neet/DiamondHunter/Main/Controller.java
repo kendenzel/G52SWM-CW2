@@ -1,5 +1,6 @@
 package com.neet.DiamondHunter.Main;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -56,6 +57,7 @@ public class Controller implements Initializable{
         Scene first = new Scene(root,840,640);
         primaryStage.setScene(first);
         primaryStage.show();
+        primaryStage.setOnCloseRequest(e -> Platform.exit());
     }
 
     @Override

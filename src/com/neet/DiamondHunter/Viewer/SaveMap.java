@@ -25,7 +25,7 @@ public abstract class SaveMap {
     }
 
     public void saveMap(int[][] map,int numRows,int numCols){
-        try (PrintStream out = new PrintStream(new FileOutputStream("newmap1.map"))) {
+        try (PrintStream out = new PrintStream(new FileOutputStream("Resources/Maps/testmap.map"))) {
             out.print(String.valueOf(axeX)+"\n"+String.valueOf(axeY)+"\n"
                     +String.valueOf(shipX)+"\n"+String.valueOf(shipY)+"\n"
                     +String.valueOf(numRows)+"\n"+String.valueOf(numCols)+"\n");
