@@ -1,5 +1,6 @@
 package com.neet.DiamondHunter.Viewer;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -16,6 +17,12 @@ import java.util.ResourceBundle;
 
 public class ViewerController extends TileMap implements Initializable {
 
+
+    private boolean axePressed = false;
+    private boolean shipPressed = false;
+
+    private boolean axeDrawn = false;
+    private boolean shipDrawn = false;
 
     @FXML
     Canvas viewer = new Canvas();
@@ -51,6 +58,42 @@ public class ViewerController extends TileMap implements Initializable {
                 map_status.setText(map_Unblocked);
             }
         });
+    }
+
+    @FXML
+    protected void setItem(ActionEvent t){
+        if(t.getSource() == axe_tol){
+            axePressed =! axePressed;
+            if(axePressed && shipPressed)
+                shipPressed = false;
+
+            System.out.println("Axe " + axePressed + "\n" + "Ship " + shipPressed + "\n");
+
+        }
+        if(t.getSource() == ship_tol){
+            shipPressed =! shipPressed;
+            if(shipPressed && axePressed)
+                axePressed = false;
+            System.out.println("Ship " + shipPressed + "\n" + "Axe " + axePressed + "\n");
+        }
+        {
+            viewer.setOnMouseClicked(event ->  {
+                int X = (int)event.getSceneX()/16;
+                int Y = (int)event.getSceneY()/16;
+                System.out.println(first.getMap(X,Y));
+
+                if(first.getMap(X,Y)){
+                    if(axePressed && !axeDrawn){
+                        first.drawAxe(X,Y,g);
+                        axeDrawn =! axeDrawn;
+                    }
+                    if(shipPressed && !shipDrawn) {
+                        first.drawShip(X, Y, g);
+                        shipDrawn =! shipDrawn;
+                    }
+                }
+            });
+        }
     }
 
     @Override
